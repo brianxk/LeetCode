@@ -1,6 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        nums = list(enumerate(nums))  # O(n)
+        
+        for i, n in enumerate(nums):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+            
+        """nums = list(enumerate(nums))  # O(n)
         nums = sorted(nums, key=lambda x: x[1])  # O(n * log n)
         nums.reverse()  # O(n)
         
@@ -24,4 +30,4 @@ class Solution:
             i += 1
                 
         return solution
-        
+        """
