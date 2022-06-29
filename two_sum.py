@@ -12,9 +12,6 @@ class Solution:
         
         # Rule out numbers that are too large
         i = self.find_target_index(nums, 0, len(nums), target, nums[j])
-        print(i)
-        """while (nums[i] + nums[j]) > target:
-            i -= 1"""
 
         while i >= 0:
             while (nums[i] + nums[j]) <= target:
