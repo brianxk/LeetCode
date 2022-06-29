@@ -3,7 +3,7 @@ import math
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
-        nums_copy = list(nums)
+        nums_copy = list(nums)  # Create a deep copy to access original indices
         nums.sort()
         
         j = 0
@@ -27,6 +27,8 @@ class Solution:
        
     
     def find_target_index(self, nums: List[int], begin: int, end:int , target: int, pair: int) -> int:
+        """Run binary search to eliminate indices that hold numbers too large to yield the target"""
+        
         midpoint = math.floor((begin + end) / 2)
         if midpoint <= begin:
             return midpoint
