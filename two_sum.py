@@ -1,3 +1,5 @@
+import math
+
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
@@ -9,6 +11,7 @@ class Solution:
         j = 0
         
         # Rule out numbers that are too large
+        self.find_target_index(nums, 0, len(nums) - 1, target)
         while (nums[i] + nums[j]) > target:
             i -= 1
 
@@ -26,4 +29,7 @@ class Solution:
                 j += 1
                 
             i -= 1
-            
+       
+    
+    def find_target_index(self, nums: List[int], begin: int, end:int , target: int) -> int:
+        midpoint = (begin + end) / 2
