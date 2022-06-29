@@ -11,7 +11,7 @@ class Solution:
         while (nums[i][1] + nums[j][1]) > target:
             i -= 1
 
-        while i >= 0:
+        while i > j:
             while (nums[i][1] + nums[j][1]) <= target:
                 if nums[i][1] + nums[j][1] == target:
                     return [nums[i][0], nums[j][0]]
@@ -19,5 +19,4 @@ class Solution:
                 j += 1
                 
             i -= 1
-                
-        
+            
