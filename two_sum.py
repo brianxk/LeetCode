@@ -11,9 +11,10 @@ class Solution:
         j = 0
         
         # Rule out numbers that are too large
-        self.find_target_index(nums, 0, len(nums) - 1, target)
-        while (nums[i] + nums[j]) > target:
-            i -= 1
+        i = self.find_target_index(nums, 0, len(nums), target, nums[j])
+        print(i)
+        """while (nums[i] + nums[j]) > target:
+            i -= 1"""
 
         while i >= 0:
             while (nums[i] + nums[j]) <= target:
@@ -31,5 +32,15 @@ class Solution:
             i -= 1
        
     
-    def find_target_index(self, nums: List[int], begin: int, end:int , target: int) -> int:
-        midpoint = (begin + end) / 2
+    def find_target_index(self, nums: List[int], begin: int, end:int , target: int, pair: int) -> int:
+        midpoint = math.floor((begin + end) / 2)
+        if midpoint <= begin:
+            return midpoint
+        
+        if nums[midpoint] + pair > target:
+            return self.find_target_index(nums, begin, midpoint, target, pair)
+        elif nums[midpoint] + pair < target:
+            return self.find_target_index(nums, midpoint, end, target, pair)
+        elif nums[midpoint] + pair == target:
+            return midpoint
+        
