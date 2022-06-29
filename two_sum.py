@@ -3,16 +3,15 @@ class Solution:
 
         nums = list(enumerate(nums))  # O(n)
         nums = sorted(nums, key=lambda x: x[1])  # O(n * log n)
-        nums.reverse()  # O(n)
         
-        i = 0
-        j = len(nums) - 1
+        i = len(nums) - 1
+        j = 0
         
         solution = []
         
         # Rule out numbers that are too large
         while (nums[i][1] + nums[j][1]) > target:
-            i += 1
+            i -= 1
 
         while not solution:
             while (nums[i][1] + nums[j][1]) <= target:
@@ -20,9 +19,9 @@ class Solution:
                     solution += [nums[i][0], nums[j][0]]
                     break
                     
-                j -= 1
+                j += 1
                 
-            i += 1
+            i -= 1
                 
         return solution
         
