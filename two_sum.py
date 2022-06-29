@@ -13,7 +13,7 @@ class Solution:
         # Rule out numbers that are too large
         i = self.find_target_index(nums, 0, len(nums), target, nums[j])
 
-        while i >= 0:
+        while i > j:
             while (nums[i] + nums[j]) <= target:
                 if nums[i] + nums[j] == target:
                     first = nums_copy.index(nums[i])
