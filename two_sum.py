@@ -3,15 +3,12 @@ import math
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
-        # nums = list(enumerate(nums))  # O(n)
         nums_copy = list(nums)
-        nums.sort() # = sorted(nums, key=lambda x: x[1])  # O(n * log n)
+        nums.sort()
         
-        i = len(nums) - 1
         j = 0
-        
-        # Rule out numbers that are too large
         i = self.find_target_index(nums, 0, len(nums), target, nums[j])
+        
 
         while i > j:
             while (nums[i] + nums[j]) <= target:
