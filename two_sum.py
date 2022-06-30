@@ -1,6 +1,6 @@
 """
 Author: Brian Kim
-Date: 06.30.2022
+Date: 06.29.2022
 Problem Description: https://leetcode.com/problems/two-sum/
 """
         
